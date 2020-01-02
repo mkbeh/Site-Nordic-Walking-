@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Региональная общественная организация "Федерация северной ходьбы в городе Москве"</title>
+	<link rel="stylesheet" href="src/css/all.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--[if IE 9]>
+		<link rel="stylesheet" href="ie-fix/ie9.css.css">
+  	<![endif]-->
+  	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="ie-fix/ie-none.css.css">
+  	<![endif]-->
+</head>
+<body>
+<!--[if lt IE 7]>
+
+<h1>Обновите браузер</h1>
+<![endif]-->
+	
+<!-- Шапка начало -->
+	<div onclick="openMenu()" style="overflow-x: hidden;"></div>
+	<div class="wrapper">
+		<div class="head">
+			<a href="index.html"><img class = "head__logo" src="src/img/logo.jpg"></a>
+			<div class="wrapperMenuAndSearch">
+				<div id="head__toggle-btn" onclick="openMenu()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<nav id = "menu">
+					<li><a href="index.html">Главная</a></li>
+					<li id="aboutFederationPseudo" onclick="openSubMenu('aboutFederationPseudo')">
+						<div class="itemsContainer">
+							<a>О федерации</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+							<li><a href="goals.html">Цели</a></li>
+							<li><a href="tasks.html">Задачи</a></li>
+							<li><a href="composition.html">Состав</a></li>
+							<li><a href="structure.html">Структура</a></li>
+							<li><a href="foundingDocuments.html">Осново пологающие документы</a></li>
+						</ul>
+					</li>
+					<li id="sport" onclick="openSubMenu('sport')">
+						<div class="itemsContainer">
+							<a>Спорт</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+							<li><a href="calendarCompetitions.html">Календарь соревнований</a></li>
+							<li><a href="pastCompetitions.html">Прошедшие Соревнования</a></li>
+							<li><a href="protocols.html">Протоколы</a></li>
+							<li><a href="judges.html">Судьи</a></li>
+							<li><a href="rules.html">Правила</a></li>
+						</ul>
+					</li>
+					<li id="news" onclick="openSubMenu('news')">
+						<div class="itemsContainer">
+							<a>Новости</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+							<li><a href="photoAlbums.html">О фестевалях</a></li>
+							<li><a href="videoAlbums.html">О спортивных мероприятиях</a></li>
+							<li><a href="videoAlbums.html">О соревнованиях</a></li>
+						</ul>
+					</li>
+					<li><a href="instructors.html">Инструкторы</a></li>
+					<li id='gallery' onclick="openSubMenu('gallery')">
+						<div class="itemsContainer">
+							<a>Галлерея</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+							<li><a href="photoAlbums.html">Фото альбомы</a></li>
+							<li><a href="videoAlbums.html">Видео альбомы</a></li>
+						</ul>
+					</li>
+					<li><a href="contacts.html">Контакты</a></li>
+				</nav>
+				<div class="head__searchContainer">
+					<form>
+						<p>
+							<input type="text">
+						</p>
+						<input type="submit" value="Поиск">
+					</form>
+				</div>
+			</div>		
+		</div>
+		<hr align="center" width="100%" size="1px" color="#dddddd" />
+<!-- Шапка конец -->
+<!-- Центральный контент начало -->
+		<div class="centralContentAndSidebar">
+            <div class="containerAlignContainerInstructor">
+                <div class="containerInstructor">
+                    <img class="containerInstructor__img"src="src/img_test/flowers.jpg">
+                    <div class="informationAboutInstructor">
+                        <p class="instructorInitials">
+                            Иванов Иван Иванович
+                        </p>
+                        <p class="instructorDescription">
+                            consectetur eveniet culpa?
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Assumenda odit, aliquid deleniti quae aspernatur tempore
+                            mollitia iure rerum blanditiis 
+                            modi velit voluptas ipsum accusamus et nobis quod
+                            consectetur eveniet culpa?
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.  
+                        </p>
+                    </div>
+                </div>
+                <div class="containerInstructor">
+                    <img class="containerInstructor__img"src="src/img_test/instructor.jpg">
+                    <div class="informationAboutInstructor">
+                        <p class="instructorInitials">
+                            Иванов Иван Иванович
+                        </p>
+                        <p class="instructorDescription">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Assumenda odit, aliquid deleniti quae aspernatur tempore mollitia
+                            iure rerum blanditiis 
+                            modi velit voluptas ipsum accusamus et nobis quod consectetur
+                            eveniet culpa?
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Assumenda odit, aliquid deleniti quae aspernatur tempore
+                            mollitia iure rerum blanditiis 
+                            modi velit voluptas ipsum accusamus et nobis quod
+                            consectetur eveniet culpa?
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Assumenda odit, aliquid deleniti quae aspernatur tempore
+                            mollitia iure rerum blanditiis 
+                            modi velit voluptas ipsum accusamus et nobis quod
+                            consectetur eveniet culpa?
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Assumenda odit, aliquid deleniti quae aspernatur tempore
+                            mollitia iure rerum blanditiis 
+                            modi velit voluptas ipsum accusamus et nobis quod
+                            consectetur eveniet culpa?
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                            Assumenda odit, aliquid deleniti quae aspernatur tempore
+                            mollitia iure rerum blanditiis 
+                            modi velit voluptas ipsum accusamus et nobis quod
+                        </p>
+                    </div>
+				</div>
+				
+				<div class="paginationContainer">
+					<a href="#"><</a>
+				
+					<a href="#">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<span>...</span>
+					<a href="#">10</a>
+				
+					<a href="#">></a>
+				</div>
+				
+            </div>	
+			<div class="sidebarItems">
+				<div class="sidebarItems__sidebaritem">
+					<a href="http://fst-otm.net/"><img src="src/img/fst-otm.net.jpg" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="http://www.ruswalk.ru/"><img src="src/img/ruswalk.jpg" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="https://www.nordicjournal.ru/"><img src="src/img/NW.jpg" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="https://www.mgpu.ru/?utm_source=yandex&utm_medium=cpc&utm_campaign=43805265&utm_content=7602114356&utm_term=мгпу%20официальный%20сайт&yclid=4921962780622610026"><img src="src/img/MGPU.svg" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="http://aclive.ru/"><img src="src/img/LogoAclive.jpg" alt="baner"></a>
+				</div>
+			</div> <!-- Cайдбар конец -->	
+		</div>
+<!-- Cайдбар конец -->	
+	</div> <!--wrapper конец-->		
+<!-- Футер начало -->
+		<div class="footer">
+			<h6 class="footer__heading6">О ЖУРНАЛЕ</h6>
+			<h3 class="footer__heading3">Журнал Nordic Walking in Russia</h3>
+			<p class="footer__paragraph">Журнал-альманах, не имеющий аналогов в России. Ценность его не только во всеобъемлющем информационном поле, которое раскрывает возможности северной (скандинавской) ходьбы, но и постоянное обновление самой неожиданной, порой спорной, но достоверной информация о новых мировых открытиях в области здоровья, долголетия, управления положительным психоэмоциональным фоном человека.</p>
+			<div class="footer__container">
+				<ul class="social">
+					<li class="social__item whatsapp">
+						<i class="fa fa-whatsapp"></i>
+					</li>
+					<li class="social__item vk">
+						<i class="fa fa-vk"></i>
+					</li>
+					<li class="social__item twitter">
+						<i class="fa fa-twitter"></i>
+					</li>
+					<li class="social__item instagram">
+						<i class="fa fa-instagram"></i>
+					</li>
+				</ul>
+			</div>
+		</div> 
+<!-- Футер конец -->
+<script src="src/js/min.js/openMenu.min.js"></script>
+<script src="src/js/min.js/activeMenuLink.min.js"></script>
+</body>
+</html>

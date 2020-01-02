@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Календарь соревнований
+{% endblock %}
+
+{% block content %}
+    <div class="containerForCentralContent">
+        <div class="filterCompetitionsContainer">
+            <h3 class="headingH6">Ближайшие события</h3>
+            <div class="containerOfFilterEvents">
+                <a href="{% url 'events_calendar:events_calendar' 7 %}" class="containerOfFilterEvents__weekEventLink"><input type="button" value="Неделя" class="containerOfFilterEvents__weekEventButton"></a>
+                <a href="{% url 'events_calendar:events_calendar' 30 %}" class="containerOfFilterEvents__monthEventLink"><input type="button" value="Месяц" class="containerOfFilterEvents__monthEventButton"></a>
+                <a href="{% url 'events_calendar:events_calendar' 90 %}" class="containerOfFilterEvents__3monthEventLink"><input type="button" value="3 Месяца" class="containerOfFilterEvents__3monthEventButton"></a>
+                <a href="{% url 'events_calendar:events_calendar' 180 %}" class="containerOfFilterEvents__6monthEventLink"><input type="button" value="6 Месяцев" class="containerOfFilterEvents__6monthEventButton"></a>
+                <a href="{% url 'events_calendar:events_calendar' 365 %}" class="containerOfFilterEvents__yearEventLink"><input type="button" value="Год" class="containerOfFilterEvents__yearEventButton"></a>
+            </div>
+        </div>
+         {% if events %}
+            {% for event in events %}
+                <div class="containerOfEvents">
+                    <a href="{{ event.get_absolute_url }}">
+                        <img src="{{ event.preview_image.url }}" class = "containerOfEvents__img">
+                    </a>
+                    <div class="containerOfEvents__description">
+                        <p class="containerOfEvents__description__date">
+                            <strong>
+                                {{ event.event_date_from }} {% if event.event_date_to%} - {{ event.event_date_to }}{% endif %}
+                            </strong>
+                        </p>
+                        <p>
+                            <a href="{{ event.get_absolute_url }}" class="containerOfEvents__description__link">{{ event.title }}</a>
+                        </p>
+                       {% autoescape off %}
+                           <div class="containerOfEvents__description__location">
+                               {{ event.description|cutimages|cutiframes|truncatewords:30 }}
+                           </div>
+                       {% endautoescape %}
+                    </div>
+                    {% if not forloop.last %}
+                        <hr align="center" width="100%" size="1px" color="#dddddd" style="margin: 0px 0px 20px 0px;" />
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if page.has_other_pages %}
+            {% include 'blog/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/truncateCardDescription.min.js' %}"></script>
+{% endblock %}

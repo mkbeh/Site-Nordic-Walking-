@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Результаты поиска
+{% endblock %}
+
+
+{% block content %}
+    <div class="containerForCentralContent">
+        <h1 class="searchingResultsTitile">
+            Результаты поиска
+        </h1>
+
+        {% if query %}
+             <div class="searchingResultsAnswer" style="margin-bottom: 30px;">
+                 По запросу <strong>{{ query }}</strong> найдено {{ found_posts.count }} результатов:
+             <hr align="left" width="40%" size="1px" color="#dddddd" />
+            </div>
+
+            {% for found_post in found_posts %}
+                <div class="postCard">
+                    <a href="{{ found_post.get_absolute_url }}">
+                        <img src="{{ found_post.image.url }}" alt="">
+                    </a>
+                    <div class="postInfo">
+                        <div class="publishDateAndPostCategory">
+                            <div class="publishDate">
+                                <a href="{{ found_post.get_absolute_url }}">{{ found_post.publish }}</a>
+                            </div>
+                            <div class="postCategory">
+                                <a href="{{ found_post.get_absolute_url }}">{{ found_post.category }}</a>
+                            </div>
+                        </div>
+                        <div class="postDescription">
+                            <div class="postDescription__title">
+                                <a href="{{ found_post.get_absolute_url }}">
+                                    <h2>{{ found_post.title }}</h2>
+                                </a>
+                            </div>
+
+                            {% autoescape off %}
+                                <p class="postDescriptionText">
+                                     {{ found_post.body|cutimages|cutiframes|truncatewords:100 }}
+                                </p>
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+
+                {% if not forloop.last %}
+                    <hr align="center" width="100%" size="1px" color="#dddddd" />
+                {% endif %}
+
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/truncateCardDescription.min.js' %}"></script>
+{% endblock %}

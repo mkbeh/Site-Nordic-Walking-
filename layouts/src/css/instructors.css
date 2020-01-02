@@ -1,0 +1,62 @@
+.containerAlignContainerInstructor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: start;
+}
+.containerInstructor {
+    min-height: 100px;
+    margin-right: 2%;
+    border: 1px solid #56565638;
+    padding: 0 10px 10px 0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.containerInstructor__img {
+    height: 250px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 0;
+    float: left;
+}
+.informationAboutInstructor {
+    
+    flex-direction: column;
+    padding: 0 10px;
+}
+.instructorInitials {
+    margin: 10px;
+    color: black;
+}
+
+.instructorDescription {
+    color: black;
+}
+@media (max-width: 768px) {
+    .containerAlignContainerInstructor {
+        width: 100%;
+    }
+}
+@media (max-width: 425px) {
+    .containerInstructor__img {
+        width: 100%;
+        float: none;
+    }
+    .containerInstructor {
+        megin-right: 0;
+        border: 0px;
+    }
+    .informationAboutInstructor {
+        text-align: center;
+    }
+    
+}
+@media (max-width: 1023px)  {
+    .containerAlignContainerInstructor {
+        width: 100%;
+    }
+}
+
+

@@ -1,0 +1,60 @@
+.ContainerCategoryAndDate {
+    margin-bottom: 10px;
+    display: flex;
+}
+.ContainerCategoryAndDate__category {
+    background-color: #fdcbcb;
+    border: 1px solid #dfa0a3;
+    margin-right: 10px;
+}
+.ContainerCategoryAndDate__date {
+    display: inline;
+    background-color: #d0edd3;
+    border: 1px solid #aeddab;
+}
+.headerDetailPostPage {
+    text-align: center;
+}
+.ContentDetailPost  Page {
+    width: 100%;
+    margin-right: 2%;
+}
+.headerDetailPostPage {
+    text-align: center;
+}
+.descriptionContentDetailPostPage {
+    margin-bottom: 40px;
+}
+.containerCommentForms {
+    width: 25%;
+}
+.containerCommentForms__answer::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    display: block;
+}
+.containerCommentForms__answer {
+    margin-bottom: 20px;
+}
+.containerCommentForms input {
+    margin-bottom: 10px;
+}
+.containerCommentForms__button {
+    background-color: #dbe5fd;
+    border: 1px solid #7085c2;
+    width: 8em;
+    white-space: pre-line;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+.containerCommentForms__button:active {
+    box-shadow: inset 1px 1px 10px -1px;
+}
+@media (max-width: 1023px) {
+    .ContentDetailPostPage {
+        width: 100%;
+        margin: 0;
+    }
+}

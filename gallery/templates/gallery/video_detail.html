@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load embed_video_tags %}
+
+{% block title %}
+    {{ album_name }}
+{% endblock %}
+
+{% block content %}
+    <div class="containerImages">
+        <div class="titlePhotoAlbumsPage">
+            <h2>Видео альбом: "{{ album_name }}"</h2>
+            <p style="margin: 10px 0 10px 0;">Всего видео: {{ total_files }}</p>
+        </div>
+
+        {% if files %}
+            {% for file in files %}
+                <div class="albumsCard">
+                    {% video file.file as my_video %}
+                        {% video my_video "small" %}
+                    {% endvideo %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if page.has_other_pages %}
+            {% include 'blog/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/zoomPhoto.min.js' %}"></script>
+{% endblock %}

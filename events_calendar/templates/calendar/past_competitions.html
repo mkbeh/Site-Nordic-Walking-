@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Прошедшие соревнования
+{% endblock %}
+
+{% block content %}
+    <div class="containerForCentralContent">
+        {% if past_competitions %}
+            {% for past_competition in past_competitions %}
+                <div class="containerOfEvents">
+                    <a href="{{ past_competition.get_absolute_url }}">
+                        <img class="containerOfEvents__img" src="{{ past_competition.preview_image.url }}">
+                    </a>
+                    <div class="containerOfEvents__description">
+                        <p class="containerOfEvents__description__date">
+                            <strong>
+                                {{ past_competition.event_date_from }} {% if past_competition.event_date_to%} - {{ past_competition.event_date_to }}{% endif %}
+                            </strong>
+                        </p>
+                        <a  class="containerOfEvents__description__link" href="{{ past_competition.get_absolute_url }}">
+                            {{ past_competition.title }}
+                        </a>
+                        {% autoescape off %}
+                            <div class="containerOfEvents__description__location">
+                                {{ past_competition.description|cutimages|cutiframes|truncatewords:50 }}
+                            </div>
+                        {% endautoescape %}
+                    </div>
+                    {% if not forloop.last %}
+                        <hr align="center" width="100%" size="1px" color="#dddddd" style="margin: 0px 0px 20px 0px;" />
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if page.has_other_pages %}
+            {% include 'blog/pagination.html' %}
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/truncateCardDescription.min.js' %}"></script>
+{% endblock %}

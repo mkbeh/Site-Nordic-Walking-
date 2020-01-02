@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Инструкторы
+{% endblock %}
+
+{% block content %}
+    <div class="containerAlignContainerInstructor">
+        {% if instructors %}
+            {% for instructor in instructors %}
+                <div class="containerInstructor">
+                    {% if instructor.image %}
+                        <img class="containerInstructor__img"src="{{ instructor.image.url }}">
+                    {% endif %}
+
+                    <div class="informationAboutInstructor">
+                        <p class="instructorInitials">
+                            <strong>{{ instructor.initials }}</strong>
+                        </p>
+                        <p class="instructorDescription">
+                            {{ instructor.contacts|safe }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if page.has_other_pages %}
+            {% include 'blog/pagination.html' %}
+        {% endif %}
+    </div>
+
+{% endblock %}

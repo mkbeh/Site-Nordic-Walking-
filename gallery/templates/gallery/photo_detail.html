@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ album_name }}
+{% endblock %}
+
+{% block content %}
+    <div class="containerImages">
+        <div class="titlePhotoAlbumsPage">
+            <h2>Фото альбом: "{{ album_name }}"</h2>
+            <p style="margin: 10px 0 10px 0;">Всего изображений: {{ total_files }}</p>
+        </div>
+
+        {% if files %}
+            {% for file in files %}
+                <div class="albumsCard">
+                    <img class="containerImages__image" src="{{ file.file.url }}" alt="">
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if page.has_other_pages %}
+            {% include 'blog/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/zoomPhoto.js' %}"></script>
+{% endblock %}

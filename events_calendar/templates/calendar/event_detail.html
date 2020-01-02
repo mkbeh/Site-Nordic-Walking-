@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ event.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="containerForCentralContent">
+        <div class="ContainerCategoryAndDate">
+            <h2 class="ContainerCategoryAndDate__date">
+                <strong>
+                    {{ event.event_date_from }} {% if event.event_date_to%} - {{ event.event_date_to }}{% endif %}
+                </strong>
+            </h2>
+        </div>
+        <div class="ContentDetailPostPage">
+            <h1 class="headerDetailPostPage">{{ event.title }}</h1>
+            <div class="descriptionContentDetailPostPage">
+                {% autoescape off %}
+                    <p>{{ event.description }}</p>
+                {% endautoescape %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

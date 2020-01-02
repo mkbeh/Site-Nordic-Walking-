@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Галерея
+{% endblock %}
+
+{% block content %}
+    <div class="containerImages">
+        {% if albums %}
+            <div class="titlePhotoAlbumsPage">
+                <h2>{{ album_type }}</h2>
+            </div>
+
+            {% for album in albums %}
+               <div class="albumsCard">
+                    <a href="{{ album.get_absolute_url }}">
+                        <img class="containerImages__image" src="{{ album.preview_photo.url }}" alt="">
+                    </a>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <a href="{{ album.get_absolute_url }}" class="titleAlbums">{{ album.name }}</a>
+                        <a href="{{ album.get_absolute_url }}" class="titleAlbums">{{ album.created }}</a>
+                    </div>
+
+                    {% autoescape off %}
+                         {{ album.description|cutimages|truncatewords:100 }}
+                    {% endautoescape %}
+
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if page.has_other_pages %}
+            {% include 'blog/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/truncateCardDescription.min.js' %}"></script>
+{% endblock %}

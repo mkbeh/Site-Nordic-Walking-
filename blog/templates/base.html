@@ -1,0 +1,204 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}Региональная общественная организация "Федерация северной ходьбы в городе Москве"{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--[if IE 9]>
+		<link rel="stylesheet" href="ie-fix/ie9.css.css">
+  	<![endif]-->
+  	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="ie-fix/ie-none.css.css">
+  	<![endif]-->
+</head>
+<body onclick="deleteImgZoom()">
+<!--[if lt IE 7]>
+
+<h1>Обновите браузер</h1>
+<![endif]-->
+
+<!-- Шапка начало -->
+	<div onclick="openMenu()" style="overflow-x: hidden;"></div>
+	<div class="wrapper">
+        <p class = "siteName">
+			Официальный сайт и блог Региональной общественной организации "Федерация
+			северной ходьбы в городе Москве"
+		</p>
+		<hr align="center" width="100%" size="1px" color="#dddddd" />
+		<div class="head">
+			<a href="{% url 'blog:index' %}">
+                <img class = "head__logo" src="{% static 'img/logo.jpg' %}">
+            </a>
+			<div class="wrapperMenuAndSearch">
+				<div id="head__toggle-btn" onclick="openMenu()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<nav id = "menu">
+					<li>
+                        <a class="list__links" href="{% url 'blog:index' %}">Главная</a>
+                    </li>
+
+					<li id="aboutFederationPseudo" onclick="openSubMenu('aboutFederationPseudo')">
+						<div class="itemsContainer">
+							<a section="aboutFederationSection">О федерации</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+                            <li>
+                                <a section="aboutFederation" class="list__links" href="{% url 'static_pages:static_page' page_name='goals' %}">Цели</a>
+                            </li>
+                            <li>
+                                <a section="aboutFederation" class="list__links" href="{% url 'static_pages:static_page' page_name='tasks' %}">Задачи</a>
+                            </li>
+                            <li>
+                                <a section="aboutFederation" class="list__links" href="{% url 'static_pages:static_page' page_name='composition' %}">Состав</a>
+                            </li>
+                            <li>
+                                <a section="aboutFederation" class="list__links" href="{% url 'static_pages:static_page' page_name='structure' %}">Структура</a>
+                            </li>
+                            <li>
+                                <a section="aboutFederation" class="list__links" href="{% url 'static_pages:static_page' page_name='founding_documents' %}">Осново пологающие документы</a>
+                            </li>
+                        </ul>
+					</li>
+
+					<li id="sport" onclick="openSubMenu('sport')">
+						<div class="itemsContainer">
+							<a section="sportSection">Спорт</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+							<li>
+                                <a section="sport" class="list__links" href="{% url 'calendar:events_calendar' 7 %}">Календарь соревнований</a>
+                            </li>
+                            <li>
+                                <a section="sport" class="list__links" href="{% url 'calendar:past_competitions' %}">Прошедшие Соревнования</a>
+                            </li>
+                            <li>
+                                <a section="sport" class="list__links" href="{% url 'static_pages:static_page' page_name='protocols' %}">Протоколы</a>
+                            </li>
+                            <li>
+                                <a section="sport" class="list__links" href="{% url 'static_pages:static_page' page_name='judges' %}">Судьи</a>
+                            </li>
+                            <li>
+                                <a section="sport" class="list__links" href="{% url 'static_pages:static_page' page_name='rules' %}">Правила</a>
+                            </li>
+						</ul>
+					</li>
+
+					<li id="news">
+                        <a class="list__links" href="{% url 'blog:news' %}">Новости</a>
+                    </li>
+					<li>
+                        <a class="list__links" href="{% url 'blog:instructors_list' %}">Инструкторы</a>
+                    </li>
+					<li id='gallery' onclick="openSubMenu('gallery')">
+						<div class="itemsContainer">
+							<a section="gallerySection">Галлерея</a>
+							<span class="triangleDec">▼</span>
+						</div>
+						<ul class='menu__list'>
+							<li>
+                                <a section="gallery" class="list__links" href="{% url 'gallery:photo_albums' %}">Фото альбомы</a>
+                            </li>
+                            <li>
+                                <a section="gallery" class="list__links" href="{% url 'gallery:video_albums' %}">Видео альбомы</a>
+                            </li>
+						</ul>
+					</li>
+					<li>
+                        <a class="list__links" href="{% url 'static_pages:static_page' page_name='contacts' %}">Контакты</a>
+                    </li>
+				</nav>
+
+                <div class="head__searchContainer">
+                    {% if form %}
+                        <form action="." method="get">
+                            {{ form.as_p }}
+                            <input type="submit" value="Поиск">
+                        </form>
+                    {% endif %}
+                </div>
+
+                <a class="donateLink" href="{% url 'static_pages:static_page' page_name='donate' %}">
+					<div class="box">
+						<button class="donateButton">
+							<span class="donateButtonTitle">
+								Вступить в федерацию
+							</span>
+						</button>
+					</div>
+				</a>
+
+			</div>
+		</div>
+		<hr align="center" width="100%" size="1px" color="#dddddd" />
+<!-- Шапка конец -->
+
+        <div class="centralContentAndSidebar">
+<!-- Центральный контент начало -->
+            {% block content %}
+            {% endblock %}
+<!-- Центральный контент конец -->
+<!-- Cайдбар начало -->
+			<div class="sidebarItems">
+				<div class="sidebarItems__sidebaritem">
+					<a href="http://fst-otm.net/"><img src="{% static '../static/img/fst-otm.net.jpg' %}" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="http://www.ruswalk.ru/"><img src="{% static '../static/img/ruswalk.jpg' %}" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="https://www.nordicjournal.ru/"><img src="{% static '../static/img/NW.jpg' %}" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="https://www.mgpu.ru/?utm_source=yandex&utm_medium=cpc&utm_campaign=43805265&utm_content=7602114356&utm_term=мгпу%20официальный%20сайт&yclid=4921962780622610026"><img src="{% static '../static/img/MGPU.svg' %}" alt="baner"></a>
+				</div>
+				<div class="sidebarItems__sidebaritem">
+					<a href="http://aclive.ru/"><img src="{% static '../static/img/LogoAclive.jpg' %}" alt="baner"></a>
+				</div>
+			</div>
+<!-- Cайдбар конец -->
+		</div>
+
+	</div> <!--wrapper конец-->
+<!-- Футер начало -->
+		<div class="footer">
+			<h6 class="footer__heading6"></h6>
+			<h3 class="footer__heading3"></h3>
+			<p class="footer__paragraph"></p>
+			<div class="footer__container">
+				<ul class="social">
+					<li class="social__item whatsapp">
+						<em class="fa fa-whatsapp"></em>
+					</li>
+					<li class="social__item vk">
+						<em class="fa fa-vk"></em>
+					</li>
+					<li class="social__item twitter">
+						<em class="fa fa-twitter"></em>
+					</li>
+					<li class="social__item instagram">
+						<em class="fa fa-instagram"></em>
+					</li>
+				</ul>
+			</div>
+		</div>
+<!-- Футер конец -->
+        <script src="{% static 'js/openMenu.js' %}"></script>
+        <script src="{% static 'js/pagination.js' %}"></script>
+        <script src="{% static 'js/activeMenuLink.js' %}"></script>
+        {% block scripts %}
+        {% endblock %}
+</body>
+</html>

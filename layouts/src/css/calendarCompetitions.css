@@ -1,0 +1,47 @@
+.containerOfFilterEvents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-decoration: none;
+    color:#fff;
+}
+
+.containerOfFilterEvents a {
+    color:#fff;
+    text-decoration: none;
+}
+
+.filterCompetitionsContainer {
+    margin: 0 auto;
+}
+
+.containerOfFilterEvents__weekEventButton, .containerOfFilterEvents__monthEventButton,
+.containerOfFilterEvents__3monthEventButton, .containerOfFilterEvents__6monthEventButton,
+.containerOfFilterEvents__yearEventButton {  
+    margin: 10px;
+    background: #353434;
+    color:#fff;
+}
+
+.headingH6 {
+    text-align: center;
+}
+
+.containerOfEvents__description__date {
+    color: #555555;
+    margin: 5px 0 0 5px;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.containerOfEvents__description__link {
+    color: #222;
+    line-height: 16px;
+    margin: 0 5px 0 5px;
+}
+
+.containerOfEvents__description__location {
+    margin: 15px 0 15px 5px;
+    font-style: italic;
+}
+

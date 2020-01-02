@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <style type="text/css">
+       .errorlist li {
+           background-color: #ffbcc3;
+           color: #710000;
+           padding: 2px 2px 2px 2px;
+           border: 2px solid #d60600;
+       }
+
+        .successMsg {
+            background-color: #caffc4;
+            color: #008000;
+            padding: 2px 2px 2px 2px;
+            border: 2px solid green;
+        }
+    </style>
+
+    <div class="containerForCentralContent">
+        <div class="ContainerCategoryAndDate">
+            <h2 class="ContainerCategoryAndDate__category">
+                {{ post.category }}
+            </h2>
+            <h2 class="ContainerCategoryAndDate__date">
+                {{ post.publish }}
+            </h2>            
+        </div>
+
+        <div class="ContentDetailPostPage">
+            <h1 class="headerDetailPostPage">{{ post.title }}</h1>
+            <div class="descriptionContentDetailPostPage">
+                {% autoescape off %}
+                    {{ post.body }}
+                {% endautoescape %}
+            </div>
+
+            <div class="containerCommentForm">
+                <div class="containerCommentCard__numberAnswer">Оставить комментарий</div>
+
+                {% if new_comment %}
+                    <p class="successMsg">Ваш комментарий успешно добавлен</p>
+                {% else %}
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        {{ comment_form.as_p }}
+                        <input class="containerCommentForm__button" type="submit" value="Добавить комментарий">
+                    </form>
+                {% endif %}
+            </div>
+
+            {% if comments %}
+                <div class="containerCommentCard">
+                    {% with comments.count as total_comments %}
+                        <div class="containerCommentCard__numberAnswer">
+                            <strong>{{ total_comments }} комментариев</strong>
+                        </div>
+                    {% endwith %}
+                    <hr align="center" width="100%" size="1px" color="#404040" />
+
+                    {% for comment in comments %}
+                        <div class="containerCommentCard__details">
+                            <div class="containerCommentCard__details__dateAndText">
+                                <div><strong>{{ comment.created }}</strong></div>
+                                <p>{{ comment.body }}</p>
+                            </div>
+                            <div class="userName">
+                                <strong>{{ comment.user_name }}</strong>
+                            </div>
+                        </div>
+
+                        {% if not forloop.last %}
+                            <hr align="center" width="100%" size="1px" color="#e5e5e5" />
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

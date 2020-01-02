@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+    <div class="containerForCentralContent">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="itemBlog">
+                    <div class="itemBlog__category">
+                        <a class="itemBlog__category__link">{{ post.category }}</a>
+                    </div>
+
+                    <a href="{{ post.get_absolute_url }}">
+                        <img class = "itemBlog__img" src="{{ post.image.url }}">
+                    </a>
+
+                    <div class="itemBlog__description">
+                        <a href="{{ post.get_absolute_url }}">
+                            <h3>{{ post.title }}</h3>
+                        </a>
+
+                        {% autoescape off %}
+                            {{ post.body|cutimages|cutiframes|truncatewords:100 }}
+                        {% endautoescape %}
+                    </div>
+
+                    <div class="itemBlog__underPostInfo">
+                        <a href="{{ post.get_absolute_url }}" class="itemBlog__underPostInfo__datePublish">{{ post.publish }}</a>
+                        <a href="{{ post.get_absolute_url }}" class=itemBlog__underPostInfo__response>{{ post.comments.count }} комментариев</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/truncateCardDescription.js' %}"></script>
+{% endblock %}

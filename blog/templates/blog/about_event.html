@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    О соревнованиях
+{% endblock %}
+
+{% block content %}
+    <div class="containerForCentralContent">
+        {% if page_objs %}
+            {% for competition in page_objs %}
+                <div class="itemBlog">
+                    <a href="{{ competition.get_absolute_url }}">
+                        <img class = "itemBlog__img" src="{{ competition.image.url }}">
+                    </a>
+
+                    <div class="itemBlog__description">
+                        <a href="{{ competition.get_absolute_url }}">
+                            <h3>{{ competition.title }}</h3>
+                        </a>
+
+                        {% autoescape off %}
+                            {{ competition.body|cutimages|cutiframes|truncatewords:100 }}
+                        {% endautoescape %}
+                    </div>
+
+                    <div class="itemBlog__underPostInfo">
+                        <a href="{{ competition.get_absolute_url }}" class="itemBlog__underPostInfo__datePublish">{{ competition.publish }}</a>
+                        <a href="{{ competition.get_absolute_url }}" class=itemBlog__underPostInfo__response>{{ competition.comments.count }} комментариев</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if page.has_other_pages %}
+                {% include 'blog/pagination.html' %}
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/truncateCardDescription.min.js' %}"></script>
+{% endblock %}
