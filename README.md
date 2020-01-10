@@ -1,6 +1,8 @@
 # Website "Nordic walking"
 The following actions were performed on ubuntu 19.04 and python 3.6.
 
+> HTML/CSS made another person, not me.
+
 
 ### **Getting started**
 * [Initial actions](#initial-actions)
